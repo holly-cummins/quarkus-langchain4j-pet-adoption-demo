@@ -10,8 +10,7 @@ import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class AnimalValidator implements OutputGuardrail {
-    @Inject
-    SmartGreeter smartGreeter;
+    AnimalIdentifier smartGreeter;
 
     @Inject
     ObjectMapper mapper;
