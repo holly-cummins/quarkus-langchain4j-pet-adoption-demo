@@ -1,0 +1,23 @@
+Subject: [PATCH] Remove some function for demo
+---
+Index: src/main/java/org/acme/SmartGreeter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/acme/SmartGreeter.java b/src/main/java/org/acme/SmartGreeter.java
+--- a/src/main/java/org/acme/SmartGreeter.java	(revision d5e92375f7ba4f5e7c162476c4f0d17e7d639383)
++++ b/src/main/java/org/acme/SmartGreeter.java	(date 1762339074978)
+@@ -5,12 +5,10 @@
+ import io.quarkiverse.langchain4j.RegisterAiService;
+ import io.quarkiverse.langchain4j.guardrails.OutputGuardrails;
+ 
+-@RegisterAiService //(tools = Tools.class)
+ public interface SmartGreeter {
+ 
+     String greet();
+ 
+-    @UserMessage("Hi, my name is {name}")
+     String greet(String name);
+ 
+     @UserMessage("What time is it?")
