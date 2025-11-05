@@ -21,8 +21,10 @@ To build up the capability in this app from scratch, these are the steps.
 
 ### General shortcuts
 
-Ctrl-` to enter presenter mode in IDEA
+Ctrl-`,6,1 to enter presenter mode in IDEA
+Ctrl-G to rename multiple occurrences of something (useful for adjusting duplicated resource endpoints)
 Cmd-tab to choose app on Mac
+
 
 ### Prep
 
