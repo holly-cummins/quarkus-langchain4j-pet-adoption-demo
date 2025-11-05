@@ -16,7 +16,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@QueryParam("name") String name) {
-        return greeter.greet();
+        return greeter.greet(name);
     }
 
     @Path("time")
