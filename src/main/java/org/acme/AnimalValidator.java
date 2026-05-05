@@ -10,6 +10,7 @@ import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class AnimalValidator implements OutputGuardrail {
+    @Inject
     AnimalIdentifier smartGreeter;
 
     @Inject
@@ -29,7 +30,7 @@ public class AnimalValidator implements OutputGuardrail {
                 return reprompt("A " + pet.type() + " is not a " + pet.animal(), "Make sure that animal is a type of " + pet.animal());
             }
         } catch (JsonProcessingException e) {
-            return reprompt("Invalid JSON " + responseFromLLM.text(), e, "Make sure you return a valid JSON object");
+            return reprompt("Invalid JSON " + responseFromLLM.text(), e, "Make sure you return a valid JSON object. Do not add any markdown wrappers to it.");
         }
         return success();
     }
