@@ -29,7 +29,10 @@ public class BackendResource {
     @Path("pet")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Pet pet() {
+    public Pet pet(@QueryParam("preference") String preference) {
+        if (preference != null && !preference.isEmpty()) {
+            return ai.pet(preference);
+        }
         return ai.pet();
     }
 }

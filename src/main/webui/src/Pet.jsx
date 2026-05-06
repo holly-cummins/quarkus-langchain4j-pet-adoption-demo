@@ -5,7 +5,7 @@ function toImage(animal) {
     return `/quinoa/${animal.toLowerCase()}.png`;
 }
 
-export default function Pet() {
+export default function Pet({ preference }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -13,9 +13,10 @@ export default function Pet() {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const response = await fetch(
-                `/api/pet`
-            );
+            const url = preference
+                ? `/api/pet?preference=${encodeURIComponent(preference)}`
+                : `/api/pet`;
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`HTTP error: Status ${response.status}`);
             }
@@ -34,7 +35,7 @@ export default function Pet() {
         if (!loading) {
             fetchData();
         }
-    }, []);
+    }, [preference]);
 
     return data && <div className="card">
             <div className="colour" style={{background: data.hexColour}}/>
@@ -57,7 +58,7 @@ export default function Pet() {
         </div> ||
         <div className="card blank">
             <div>Invoking the magic gerbils ...</div>
-            <img className="spinner" src="/quinoa/spinner.png"></img>
+            <img className="spinner" alt="..." src="/quinoa/spinner.png"></img>
         </div>;
 };
 

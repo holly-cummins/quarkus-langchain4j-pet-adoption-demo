@@ -19,6 +19,49 @@
   color: white;
 }
 
+.preference-input {
+  width: 100%;
+  max-width: 600px;
+  margin: 2em auto 1em;
+  padding: 0 1em;
+}
+
+.preference-input label {
+  display: block;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.preference-input input {
+  width: 100%;
+  padding: 0.75em 1em;
+  font-size: 1em;
+  font-family: inherit;
+  border: 2px solid #646cff;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.preference-input input:focus {
+  outline: none;
+  border-color: #535bf2;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+}
+
+.preference-input input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.featured-pet-heading {
+  margin: 1.5em 0 0.5em;
+  font-size: 1.8em;
+  color: #646cff;
+}
 
 .invitation {
   font-style: italic;
