@@ -1,23 +1,149 @@
-Subject: [PATCH] Remove some function for demo
----
-Index: src/main/java/org/acme/SmartGreeter.java
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
-diff --git a/src/main/java/org/acme/SmartGreeter.java b/src/main/java/org/acme/SmartGreeter.java
---- a/src/main/java/org/acme/SmartGreeter.java	(revision d5e92375f7ba4f5e7c162476c4f0d17e7d639383)
-+++ b/src/main/java/org/acme/SmartGreeter.java	(date 1762339074978)
-@@ -5,12 +5,10 @@
+----Subject: [PATCH] Remove some function for demo
+-------
+----Index: src/main/java/org/acme/SmartGreeter.java
+----IDEA additional info:
+----Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+----<+>UTF-8
+----===================================================================
+----diff --git a/src/main/java/org/acme/SmartGreeter.java b/src/main/java/org/acme/SmartGreeter.java
+------- a/src/main/java/org/acme/SmartGreeter.java	(revision d5e92375f7ba4f5e7c162476c4f0d17e7d639383)
+----+++ b/src/main/java/org/acme/SmartGreeter.java	(date 1762339074978)
+----@@ -5,12 +5,10 @@
+---- import io.quarkiverse.langchain4j.RegisterAiService;
+---- import io.quarkiverse.langchain4j.guardrails.OutputGuardrails;
+---- 
+-----@RegisterAiService //(tools = Tools.class)
+---- public interface SmartGreeter {
+---- 
+----     String greet();
+---- 
+-----    @UserMessage("Hi, my name is {name}")
+----     String greet(String name);
+---- 
+----     @UserMessage("What time is it?")
+-diff --git a/src/main/java/org/acme/AiHelper.java b/src/main/java/org/acme/AiHelper.java
+-index add1d5e..94965f9 100644
+---- a/src/main/java/org/acme/AiHelper.java
+-+++ b/src/main/java/org/acme/AiHelper.java
+-@@ -5,19 +5,12 @@ import dev.langchain4j.service.UserMessage;
+- import io.quarkiverse.langchain4j.RegisterAiService;
+- import io.quarkiverse.langchain4j.guardrails.OutputGuardrails;
+- 
+--@RegisterAiService //(tools = Tools.class)
+-+//@RegisterAiService //(tools = Tools.class)
+- public interface AiHelper {
+- 
+--    String greet();
+- 
+--    @UserMessage("Hi, my name is {name}")
+--    String greet(String name);
+--
+--    @UserMessage("What time is it?")
+--    String time();
+--
+--    @SystemMessage("You are an assistant in a pet adoption centre. Your job is to help people find the right pet for them. Include descriptions of the specific individual to be adopted.")
+--    @UserMessage("I would like to find a pet. Please suggest something unusual.  Please only suggest one.")
+--    @OutputGuardrails(AnimalValidator.class)
+--    Pet pet();
+-+//    @SystemMessage("You are an assistant in a pet adoption centre. Your job is to help people find the right pet for them. Include descriptions of the specific individual to be adopted.")
+-+//    @UserMessage("I would like to find a pet. Please suggest something unusual.  Please only suggest one.")
+-+//    @OutputGuardrails(AnimalValidator.class)
+-+//    Pet pet();
+- }
+-diff --git a/src/main/java/org/acme/BackendResource.java b/src/main/java/org/acme/BackendResource.java
+-index 867321c..a5cb741 100644
+---- a/src/main/java/org/acme/BackendResource.java
+-+++ b/src/main/java/org/acme/BackendResource.java
+-@@ -10,26 +10,13 @@ import jakarta.ws.rs.core.MediaType;
+- @Path("/api")
+- public class BackendResource {
+- 
+--    @Inject
+--    AiHelper ai;
+--
+--    @GET
+--    @Produces(MediaType.TEXT_PLAIN)
+--    public String hello(@QueryParam("name") String name) {
+--        return ai.greet(name);
+--    }
+--
+--    @Path("time")
+--    @GET
+--    @Produces(MediaType.TEXT_PLAIN)
+--    public String time() {
+--        return ai.time();
+--    }
+-+//    @Inject
+-+//    AiHelper ai;
+- 
+-     @Path("pet")
+-     @GET
+-     @Produces(MediaType.APPLICATION_JSON)
+-     public Pet pet() {
+--        return ai.pet();
+-+        return new Pet("","","","",0,"","",Animal.UNKNOWN);
+-     }
+- }
+diff --git a/src/main/java/org/acme/AiHelper.java b/src/main/java/org/acme/AiHelper.java
+index add1d5e..94965f9 100644
+--- a/src/main/java/org/acme/AiHelper.java
++++ b/src/main/java/org/acme/AiHelper.java
+@@ -5,19 +5,12 @@ import dev.langchain4j.service.UserMessage;
  import io.quarkiverse.langchain4j.RegisterAiService;
  import io.quarkiverse.langchain4j.guardrails.OutputGuardrails;
  
 -@RegisterAiService //(tools = Tools.class)
- public interface SmartGreeter {
++//@RegisterAiService //(tools = Tools.class)
+ public interface AiHelper {
  
-     String greet();
+-    String greet();
  
 -    @UserMessage("Hi, my name is {name}")
-     String greet(String name);
+-    String greet(String name);
+-
+-    @UserMessage("What time is it?")
+-    String time();
+-
+-    @SystemMessage("You are an assistant in a pet adoption centre. Your job is to help people find the right pet for them. Include descriptions of the specific individual to be adopted.")
+-    @UserMessage("I would like to find a pet. Please suggest something unusual.  Please only suggest one.")
+-    @OutputGuardrails(AnimalValidator.class)
+-    Pet pet();
++//    @SystemMessage("You are an assistant in a pet adoption centre. Your job is to help people find the right pet for them. Include descriptions of the specific individual to be adopted.")
++//    @UserMessage("I would like to find a pet. Please suggest something unusual.  Please only suggest one.")
++//    @OutputGuardrails(AnimalValidator.class)
++//    Pet pet();
+ }
+diff --git a/src/main/java/org/acme/BackendResource.java b/src/main/java/org/acme/BackendResource.java
+index 867321c..a5cb741 100644
+--- a/src/main/java/org/acme/BackendResource.java
++++ b/src/main/java/org/acme/BackendResource.java
+@@ -10,26 +10,13 @@ import jakarta.ws.rs.core.MediaType;
+ @Path("/api")
+ public class BackendResource {
  
-     @UserMessage("What time is it?")
+-    @Inject
+-    AiHelper ai;
+-
+-    @GET
+-    @Produces(MediaType.TEXT_PLAIN)
+-    public String hello(@QueryParam("name") String name) {
+-        return ai.greet(name);
+-    }
+-
+-    @Path("time")
+-    @GET
+-    @Produces(MediaType.TEXT_PLAIN)
+-    public String time() {
+-        return ai.time();
+-    }
++//    @Inject
++//    AiHelper ai;
+ 
+     @Path("pet")
+     @GET
+     @Produces(MediaType.APPLICATION_JSON)
+     public Pet pet() {
+-        return ai.pet();
++        return new Pet("","","","",0,"","",Animal.UNKNOWN);
+     }
+ }
