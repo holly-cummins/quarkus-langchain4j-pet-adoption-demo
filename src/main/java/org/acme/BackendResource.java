@@ -11,25 +11,25 @@ import jakarta.ws.rs.core.MediaType;
 public class BackendResource {
 
     @Inject
-    AiHelper greeter;
+    AiHelper ai;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@QueryParam("name") String name) {
-        return greeter.greet(name);
+        return ai.greet(name);
     }
 
     @Path("time")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String time() {
-        return greeter.time();
+        return ai.time();
     }
 
     @Path("pet")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Pet pet() {
-        return greeter.pet();
+        return ai.pet();
     }
 }
