@@ -97,8 +97,18 @@ Cmd-tab to choose app on Mac
 3. Make animals include bird, snake, cat, dog
 4. Make the return type be json
 5. Try the endpoint
-6. Copy webui from the main repo into the project’s web ui
+6. Copy webui from the main repo into the project's web ui
 7. Visit http://localhost:8080/quinoa/
+
+#### User Preferences (Optional)
+
+1. The UI now includes a text input field where users can specify what kind of pet they're looking for
+2. Add a `@QueryParam("preference")` parameter to the `pet()` method in `BackendResource`
+3. Create an overloaded `pet(String preference)` method in `AiHelper` that incorporates the user's preference into the prompt
+4. Update the `@UserMessage` to include `{preference}` placeholder
+5. The UI will automatically submit the preference when the user presses Enter
+6. Try entering preferences like "a friendly dog", "something unusual", or "a quiet pet"
+7. Show how the AI adapts its suggestions based on user input
 
 #### Guardrails
 
