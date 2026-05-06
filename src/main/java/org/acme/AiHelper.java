@@ -6,7 +6,7 @@ import io.quarkiverse.langchain4j.RegisterAiService;
 import io.quarkiverse.langchain4j.guardrails.OutputGuardrails;
 
 @RegisterAiService //(tools = Tools.class)
-public interface SmartGreeter {
+public interface AiHelper {
 
     String greet();
 

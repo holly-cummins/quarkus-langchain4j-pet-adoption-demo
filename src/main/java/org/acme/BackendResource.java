@@ -8,10 +8,10 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/api")
-public class GreetingResource {
+public class BackendResource {
 
     @Inject
-    SmartGreeter greeter;
+    AiHelper greeter;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

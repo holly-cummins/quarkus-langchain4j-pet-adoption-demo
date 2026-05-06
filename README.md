@@ -48,8 +48,9 @@ Cmd-tab to choose app on Mac
 
 1. Visit http://localhost:8080
 2. Exercise hello world on `/hello`
-3. Edit `GreetingResource`, `@Inject` a `SmartGreeter`
-4. Let the AI create it, then annotate it with `@RegisterAIService`
+3. Rename `GreetingResource` to `BackEndResource`
+4. Edit `BackEndResource`, `@Inject` a `AiHelper`
+4. Let the AI create it, then annotate it with `@RegisterAiService`
 5. Make a method called greet, and call it
 6. Try the `/hello` endpoint
 7. It will fail, this is expected
