@@ -15,6 +15,8 @@ The UI will be on http://localhost:8080/quinoa:
 
 ![screen cap of pet card](/readme-images/example-card.png)
 
+A `RedirectResource` can be used to also make `/` show the web page.
+
 ## Live coding
 
 To build up the capability in this app from scratch, these are the steps.
